@@ -1,0 +1,21 @@
+# dsh-plugin-weixin-lite bundle patch layer.
+#
+# `insert` mounts the plugin row. `id` is the row identity the settings service
+# addresses preferences by; keep it stable across upgrades. `name` is the
+# package the loader resolves from the profile's node_modules.
+#
+# `disabled` guards a double mount when the same package is already listed by
+# another bundle's patch layer, so one WeChat account cannot get two long-poll
+# loops.
+- insert:
+    - id: dsh-weixin-lite
+      name: 'dsh-plugin-weixin-lite'
+      config:
+        enabled: true
+        # Empty means deny-everyone. Fill in the Weixin sender id(s) after the
+        # first login, or let first-contact enrolment adopt the first sender.
+        allowedSenders: []
+        maxMessageLength: 1500
+        progressAfterMs: 45000
+        maxTurnWaitMs: 1200000
+      disabled: !!js "[...ctx.loader.entries()].some((e) => e.options.name === 'dsh-plugin-weixin-lite' && e.options.id !== 'dsh-weixin-lite' && !e.disabled)"
