@@ -17,7 +17,7 @@
 
 ```powershell
 # 0) 取源码
-git clone https://github.com/<your-account>/dsh-plugin-weixin-lite.git
+git clone https://github.com/cynicKss/weixin-dsh-lite.git
 cd dsh-plugin-weixin-lite
 
 # 1) 打包

@@ -3,6 +3,14 @@
   "version": "0.1.5",
   "description": "Lite WeChat remote control for DeepSeek Harness: bind one WeChat chat to one workspace session.",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cynicKss/weixin-dsh-lite.git"
+  },
+  "homepage": "https://github.com/cynicKss/weixin-dsh-lite",
+  "bugs": {
+    "url": "https://github.com/cynicKss/weixin-dsh-lite/issues"
+  },
   "type": "module",
   "main": "src/index.js",
   "exports": {
